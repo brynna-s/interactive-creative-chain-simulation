@@ -9,6 +9,16 @@ st.set_page_config(
     page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
 )
 
+# Provide navigation to the prototype's Phase 1 page (if multipage is enabled)
+if hasattr(st, "page_link"):
+    st.page_link(
+        "pages/01_Phase_1_Walkthrough.py",
+        label="🧭 Open Phase 1: Walkthrough of History",
+        icon="🧬",
+    )
+else:
+    st.info("Open 'Phase 1: Walkthrough of History' from the sidebar Pages list.")
+
 # -----------------------------------------------------------------------------
 # Declare some useful functions.
 
