@@ -1,101 +1,84 @@
-# 🧬 The Creative Chain
+# 🧠 Brain Gym — Interactive Skill Circuits
 
-An interactive Streamlit application exploring how technological disruption has historically changed creativity—and how to think creatively with AI.
+An interactive Streamlit toolkit developed in collaboration with **Microsoft Garage × NYU Stern**, designed to strengthen creative reasoning and prompt-engineering mastery.
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-url.streamlit.app/)
 
+---
+
 ## 🎯 Overview
 
-**The Creative Chain** is a three-phase interactive experience that:
+**Brain Gym** transforms creative reasoning into practical AI literacy.  
+Each “circuit” trains a distinct creativity muscle — helping users think flexibly, form analogies, structure instructions, and iterate effectively when collaborating with AI.
 
-1. **Phase 1: Walkthrough of History** — Navigate through pivotal moments when technology disrupted creativity (printing press → Renaissance, photography → Impressionism, etc.)
-2. **Phase 2: Prompting as Process** — Learn to think creatively **with** AI through guided prompting exercises (ideate, structure, prototype, reflect)
-3. **Phase 3: Design Your Disruption** — Map how human creativity might evolve in response to future disruptions
+### 💡 Circuits Overview
+1. **🧩 Circuit 1: Divergent Thinking (Magnet Mixer)**  
+   Build phrasing agility and idea fluency by composing creative sentences from randomized word magnets.
+2. **🔗 Circuit 2: Semantic Linking (ThinkLink)**  
+   Connect unrelated emojis to strengthen analogical reasoning — the basis for creative prompting.
+3. **💡 Circuit 3: Structured Expression (Prompt Playground)**  
+   Translate abstract ideas into structured, actionable AI prompts.
+4. **🔁 Circuit 4: Adaptive Challenge (AI Remix)**  
+   Refine and iterate on prompts to improve analytical clarity and collaboration.
+
+---
 
 ## 🚀 How to Run Locally
 
 ### Prerequisites
-- Python 3.8 or higher
-- pip package manager
+- Python 3.9 or higher  
+- pip package manager  
 
 ### Installation
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd brain-gym
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd creative-chain
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Run the app
+streamlit run streamlit_app.py
 
-3. **Run the app**
-   ```bash
-   streamlit run streamlit_app.py
-   ```
 
-4. **Open in browser**
-   - The app should automatically open at `http://localhost:8501`
-   - If not, manually navigate to the URL shown in your terminal
-
-## 📁 Project Structure
+### 📁 Project Structure
 
 ```
-creative-chain/
-├── streamlit_app.py              # Main entry point / home page
+brain-gym/
+├── streamlit_app.py                # Project overview / main hub
 ├── pages/
-│   ├── 01_Phase_1_Walkthrough.py # Interactive timeline
-│   ├── 02_Phase_2_Prompting.py   # AI prompting exercises
-│   └── 03_Phase_3_Design.py      # Design your disruption
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
+│   ├── 01_BrainGym_Welcome.py      # Welcome + introduction
+│   ├── 02_Circuit_1_Divergent.py   # Circuit 1: Magnet Mixer
+│   ├── 03_Circuit_2_Semantic.py    # Circuit 2: ThinkLink
+│   ├── 04_Circuit_3_Structured.py  # Circuit 3: Prompt Playground
+│   ├── 05_Circuit_4_Adaptive.py    # Circuit 4: AI Remix
+│   └── 06_Reflection_Dashboard.py  # Reflection summary + completion
+├── styles/
+│   └── global.css                  # Shared theme / style sheet
+├── requirements.txt                # Python dependencies
+└── README.md
 ```
 
-## 🔧 Configuration
 
-### Adding LLM Integration (Phase 2)
+### Learning Outcomes
 
-Phase 2 currently uses placeholder responses. To integrate a real LLM:
+Brain Gym teaches the core reasoning processes behind prompt engineering:
+1. ✳️ Divergent Thinking → Wording and phrasing awareness
+2. 🔗 Analogy Formation → Connecting concepts for richer prompts
+3. 💡 Structured Expression → Clarity and context control
+4. 🔁 Iteration → Refining AI responses through feedback
 
-1. Open `pages/02_Phase_2_Prompting.py`
-2. Find the `call_llm()` function
-3. Replace with your API integration (OpenAI, Anthropic, etc.)
+### 🖼 Design Philosophy
+Brain Gym views creativity as a trainable system.
+Just as physical circuits strengthen different muscles, these “skill circuits” build distinct reasoning abilities essential for effective, ethical AI collaboration.
 
-Example with OpenAI:
-```python
-def call_llm(prompt: str) -> str:
-    from openai import OpenAI
-    client = OpenAI(api_key="your-api-key")
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
-```
+## 🧑‍💻 Contributing
 
-### Customizing the Timeline (Phase 1)
-
-Edit the `TIMELINE_ITEMS` list in `pages/01_Phase_1_Walkthrough.py` to add or modify historical periods.
-
-## 🌐 Deploying to Streamlit Cloud
-
-1. Push your code to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your repository
-4. Set `streamlit_app.py` as the main file
-5. Add any API keys in the Secrets section
-6. Deploy!
-
-## 📝 Features
-
-- ✅ Interactive historical timeline with hover effects
-- ✅ Guided AI prompting workflow
-- ✅ Creative chain mapping tool
-- ✅ Export functionality for summaries
-- ✅ Session state management across phases
-- ✅ Responsive design
+✅ We welcome contributions and collaboration!
+- Suggest new exercises or circuit types
+- Improve UI/UX or educational flow
+- Report bugs or issues
 
 ## 🎨 Design Philosophy
 
@@ -109,14 +92,10 @@ Contributions welcome! Feel free to:
 - Improve prompting exercises in Phase 2
 - Enhance the UI/UX
 
-## 📄 License
-
-[Add your license here]
-
 ## 🙏 Acknowledgments
 
-Built with [Streamlit](https://streamlit.io) 🎈
-
+Built with ❤️ using Streamlit
+Developed by the NYU Stern Consulting Capstone Team, in partnership with Microsoft Garage.
 ---
 
-**Questions?** Open an issue or reach out to [your contact info]
+**Questions?** Open an issue or reach out to brynna-s
