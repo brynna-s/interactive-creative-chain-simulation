@@ -1,74 +1,91 @@
 import streamlit as st
 
+# ==== PAGE CONFIG ====
 st.set_page_config(
-    page_title="The Creative Chain",
-    page_icon="🧬",
+    page_title="Brain Gym — Interactive Skill Circuits",
+    page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Initialize session state
+# ==== INITIALIZE SESSION STATE ====
 def init_state():
-    st.session_state.setdefault("phase", 1)
-    st.session_state.setdefault("scene_idx", 0)
-    st.session_state.setdefault("chat", [])
-    st.session_state.setdefault("design", {
-        "disruption": "",
-        "chain": [],
-        "reflection": ""
-    })
+    st.session_state.setdefault("current_circuit", 0)
+    st.session_state.setdefault("reflections", {})
+    st.session_state.setdefault("progress", 0.0)
 
 init_state()
 
-# Main landing page
-st.title("🧬 The Creative Chain")
+# ==== MAIN LANDING PAGE ====
+st.title("🧠 Brain Gym — Interactive Skill Circuits")
 st.markdown("""
-### An Interactive Journey Through Creative Disruption
+### A Guided Pathway from Creativity to Prompt-Engineering Mastery
 
-Explore how technological disruption has historically changed creativity, 
-then use AI to simulate your own creative ideation process.
+**Brain Gym** transforms creative reasoning into practical AI literacy.  
+Each circuit strengthens a different “creativity muscle” — helping you think, structure, and iterate like an effective prompt engineer.
 """)
 
 st.divider()
 
-col1, col2, col3 = st.columns(3)
+# ==== CIRCUIT CARDS ====
+col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("### 📜 Phase 1")
-    st.markdown("**Walkthrough of History**")
-    st.markdown("Navigate through pivotal moments when technology disrupted creativity.")
-    if st.button("Start Phase 1 →", key="nav_phase1", use_container_width=True):
-        st.switch_page("pages/01_Phase_1_Walkthrough.py")
+    st.markdown("### 🧩 Circuit 1")
+    st.markdown("**Divergent Thinking (Magnet Mixer)**")
+    st.markdown("Build phrasing agility by creating sentences from randomized words.")
+    if st.button("Start Circuit 1 →", key="nav_circuit1", use_container_width=True):
+        st.switch_page("pages/02_Circuit_1_Divergent.py")
+
+    st.markdown("### 💡 Circuit 3")
+    st.markdown("**Structured Expression (Prompt Playground)**")
+    st.markdown("Translate abstract ideas into clear, actionable prompts.")
+    if st.button("Start Circuit 3 →", key="nav_circuit3", use_container_width=True):
+        st.switch_page("pages/04_Circuit_3_Structured.py")
 
 with col2:
-    st.markdown("### 🤖 Phase 2")
-    st.markdown("**Prompting as Process**")
-    st.markdown("Learn to think creatively with AI through guided prompting exercises.")
-    if st.button("Start Phase 2 →", key="nav_phase2", use_container_width=True):
-        st.switch_page("pages/02_Phase_2_Prompting.py")
+    st.markdown("### 🔗 Circuit 2")
+    st.markdown("**Semantic Linking (ThinkLink)**")
+    st.markdown("Connect unrelated concepts to train analogical reasoning.")
+    if st.button("Start Circuit 2 →", key="nav_circuit2", use_container_width=True):
+        st.switch_page("pages/03_Circuit_2_Semantic.py")
 
-with col3:
-    st.markdown("### 🎨 Phase 3")
-    st.markdown("**Design Your Disruption**")
-    st.markdown("Map how human creativity might evolve in response to new disruptions.")
-    if st.button("Start Phase 3 →", key="nav_phase3", use_container_width=True):
-        st.switch_page("pages/03_Phase_3_Design.py")
+    st.markdown("### 🔁 Circuit 4")
+    st.markdown("**Adaptive Challenge (AI Remix)**")
+    st.markdown("Refine and iterate on AI prompts to improve analytical clarity.")
+    if st.button("Start Circuit 4 →", key="nav_circuit4", use_container_width=True):
+        st.switch_page("pages/05_Circuit_4_Adaptive.py")
 
 st.divider()
 
+# ==== OVERVIEW SECTION ====
 st.markdown("""
-#### About This Project
+#### 💼 Why Brain Gym?
 
-**The Creative Chain** demonstrates how creativity evolves in response to technological disruption. 
-Throughout history, each new technology initially seemed to threaten existing creative practices, 
-but ultimately expanded human creative capacity in unexpected ways.
+As organizations adopt AI tools, creativity and structured reasoning become critical workplace skills.  
+Brain Gym offers a **hands-on, lightweight framework** to build those abilities — blending creative exploration with prompt-engineering discipline.
 
-This interactive experience will guide you through:
-- Historical examples of creative adaptation
-- Hands-on AI prompting techniques
-- Building your own theory of future creative evolution
+Each circuit focuses on a specific cognitive skill:
+
+| Circuit | Focus Skill | AI Prompting Tie-In |
+|:--|:--|:--|
+| 🧩 Divergent Thinking | Flexible phrasing | How wording shifts AI tone and meaning |
+| 🔗 Semantic Linking | Analogical reasoning | Building concept bridges in prompts |
+| 💡 Structured Expression | Clarity and context | Turning abstract ideas into precise instructions |
+| 🔁 Adaptive Challenge | Iterative refinement | Improving results through re-prompting and feedback |
+
 """)
 
-# Footer
-st.markdown("---")
-st.caption("🧬 The Creative Chain | A guided exploration of creativity and disruption")
+# ==== NAVIGATION TO DASHBOARD ====
+st.divider()
+st.subheader("📊 Reflection & Progress")
+st.markdown("""
+Track your growth, revisit reflections, and view your overall completion progress.
+""")
+
+if st.button("View Reflection Dashboard →", use_container_width=True):
+    st.switch_page("pages/06_Reflection_Dashboard.py")
+
+# ==== FOOTER ====
+st.divider()
+st.caption("🧠 Brain Gym | Microsoft Garage × NYU Stern Consulting Capstone 2025  |  A Creative-to-Prompt Learning Toolkit")
